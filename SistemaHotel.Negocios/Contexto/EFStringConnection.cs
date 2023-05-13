@@ -30,7 +30,7 @@ namespace SistemaHotel.Negocios.Context
             Configuration = builder.Build();
 
             string usarConnectionString = Configuration["ConnectionStringUsed"];
-            stringConnection = Configuration.GetConnectionString(usarConnectionString);
+            stringConnection = Configuration.GetConnectionString(Configuration["ConnectionStringUsed"]);
             return stringConnection;
         }
     }
