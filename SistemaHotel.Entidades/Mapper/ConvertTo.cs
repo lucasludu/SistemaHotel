@@ -13,8 +13,19 @@ namespace SistemaHotel.Entidades.Mapper
     {
         public ConvertTo()
         {
+
+            #region ROL
             CreateMap<RolWriteDto, RolUsuario>().ReverseMap();
             CreateMap<RolReadDto, RolUsuario>().ReverseMap();
+            #endregion
+
+            #region USUARIO
+            CreateMap<UserLoginDto, Usuario>().ReverseMap();
+            CreateMap<UserLoginDto, UserDto>().ReverseMap();
+            CreateMap<UserRegisterDto, Usuario>().ReverseMap();
+            CreateMap<UserDto, Usuario>().ReverseMap();
+            #endregion
+
         }
     }
 }

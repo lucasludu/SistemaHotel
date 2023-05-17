@@ -226,8 +226,8 @@ namespace SistemaHotel.EF.Contexto
 
                 entity.ToTable("Usuario");
 
-                entity.Property(e => e.Clave)
-                    .HasMaxLength(50)
+                entity.Property(e => e.Apellido)
+                    .HasMaxLength(25)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Correo)
@@ -240,7 +240,7 @@ namespace SistemaHotel.EF.Contexto
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.NombreCompleto)
+                entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 

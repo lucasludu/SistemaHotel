@@ -9,5 +9,6 @@ namespace SistemaHotel.Negocios.Repositorios.Interfaces
 {
     public interface IUsuarioNegocio : IBaseNegocio<Usuario>
     {
+        bool ExisteUsuario(string email);
     }
 }

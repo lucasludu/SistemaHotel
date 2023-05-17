@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SistemaHotel.Entidades.Models
+namespace SistemaHotel.Entidades.DTOs
 {
-    public partial class Usuario
+    public class UserDto
     {
         public int IdUsuario { get; set; }
         public string? Nombre { get; set; }
@@ -12,9 +15,5 @@ namespace SistemaHotel.Entidades.Models
         public bool? Estado { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public string Apellido { get; set; } = null!;
-        public byte[]? PasswordHash { get; set; }
-        public byte[]? PasswordSalt { get; set; }
-
-        public virtual RolUsuario? IdRolUsuarioNavigation { get; set; }
     }
 }

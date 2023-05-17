@@ -10,5 +10,6 @@ namespace SistemaHotel.Negocios.Repositorios.Interfaces
     public interface IRolNegocio : IBaseNegocio<RolUsuario>
     {
         bool Desactivar(int id);
+        bool Activar(int id);
     }
 }

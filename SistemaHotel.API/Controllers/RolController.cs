@@ -84,7 +84,6 @@ namespace SistemaHotel.API.Controllers
         {
             try
             {
-
                 if(dto.IdRolUsuario == id)
                 {
                     var rol = _mapper.Map<RolUsuario>(dto);
@@ -105,6 +104,28 @@ namespace SistemaHotel.API.Controllers
         }
 
 
+        [HttpPut("activar/{id}")]
+        public IActionResult Activar(int id)
+        {
+            try
+            {
+                var rol = _unitOfWork.Roles.GetByCondition(r => r.IdRolUsuario == id);
+                if (rol != null)
+                {
+                    return (_unitOfWork.Roles.Activar(rol.IdRolUsuario))
+                        ? StatusCode(StatusCodes.Status200OK, "Se ha dado de alta.")
+                        : StatusCode(StatusCodes.Status400BadRequest);
+                }
+                else
+                    return StatusCode(StatusCodes.Status400BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+        }
+
+
         [HttpDelete("desactivar/{id}")]
         public IActionResult Desactivar(int id) 
         {
@@ -114,7 +135,7 @@ namespace SistemaHotel.API.Controllers
                 if(rol != null)
                 {
                     return (_unitOfWork.Roles.Desactivar(rol.IdRolUsuario))
-                        ? StatusCode(StatusCodes.Status200OK, "Borrado con éxito.")
+                        ? StatusCode(StatusCodes.Status200OK, "Se ha dado de Baja.")
                         : StatusCode(StatusCodes.Status400BadRequest); 
                 }
                 else
